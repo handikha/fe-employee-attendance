@@ -1,0 +1,494 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Special Fried Rice",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 25000,
+      "image": "https://source.unsplash.com/600x400?friedrice"
+    },
+    {
+      "id": 2,
+      "name": "Grilled Spicy Chicken",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 30000,
+      "image": "https://source.unsplash.com/600x400?grilled+spicy+chicken"
+    },
+    {
+      "id": 3,
+      "name": "Fried Noodles",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 22000,
+      "image": "https://source.unsplash.com/600x400?noodles"
+    },
+    {
+      "id": 4,
+      "name": "Grilled Salmon",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 40000,
+      "image": "https://source.unsplash.com/600x400?grilled+salmon"
+    },
+    {
+      "id": 5,
+      "name": "Chicken Satay",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?satay"
+    },
+    {
+      "id": 6,
+      "name": "Espresso",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?espresso"
+    },
+    {
+      "id": 7,
+      "name": "Cappuccino",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 22000,
+      "image": "https://source.unsplash.com/600x400?capuccino"
+    },
+    {
+      "id": 8,
+      "name": "Latte",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 23000,
+      "image": "https://source.unsplash.com/600x400?latte"
+    },
+    {
+      "id": 9,
+      "name": "Iced Tea",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 15000,
+      "image": "https://source.unsplash.com/600x400?iced+tea"
+    },
+    {
+      "id": 10,
+      "name": "Orange Juice",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?orange+juice"
+    },
+    {
+      "id": 11,
+      "name": "Blueberry Muffin",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 15000,
+      "image": "https://source.unsplash.com/600x400?blueberry+muffin"
+    },
+    {
+      "id": 12,
+      "name": "Croissant",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?croissant"
+    },
+    {
+      "id": 13,
+      "name": "Chocolate Brownie",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 20000,
+      "image": "https://source.unsplash.com/600x400?brownie"
+    },
+    {
+      "id": 14,
+      "name": "Apple Pie",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 25000,
+      "image": "https://source.unsplash.com/600x400?apple+pie"
+    },
+    {
+      "id": 15,
+      "name": "Cheesecake",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 28000,
+      "image": "https://source.unsplash.com/600x400?cheesecake"
+    },
+    {
+      "id": 16,
+      "name": "Caesar Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 32000,
+      "image": "https://source.unsplash.com/600x400?caesar+salad"
+    },
+    {
+      "id": 17,
+      "name": "Greek Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 28000,
+      "image": "https://source.unsplash.com/600x400?greek+salad"
+    },
+    {
+      "id": 18,
+      "name": "Chicken Avocado Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 35000,
+      "image": "https://source.unsplash.com/600x400?chicken+salad"
+    },
+    {
+      "id": 19,
+      "name": "Caprese Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 30000,
+      "image": "https://source.unsplash.com/600x400?caprese+salad"
+    },
+    {
+      "id": 20,
+      "name": "Fruit Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 25000,
+      "image": "https://source.unsplash.com/600x400?fruit+salad"
+    },
+    {
+      "id": 21,
+      "name": "Tomato Basil Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 20000,
+      "image": "https://source.unsplash.com/600x400?tomato+soup"
+    },
+    {
+      "id": 22,
+      "name": "Pumpkin Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?pumpkin+soup"
+    },
+    {
+      "id": 23,
+      "name": "Mushroom Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 21000,
+      "image": "https://source.unsplash.com/600x400?mushroom+soup"
+    },
+    {
+      "id": 24,
+      "name": "Lentil Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 19000,
+      "image": "https://source.unsplash.com/600x400?lentil+soup"
+    },
+    {
+      "id": 25,
+      "name": "Minestrone Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 22000,
+      "image": "https://source.unsplash.com/600x400?minestrone+soup"
+    },
+    {
+      "id": 26,
+      "name": "Fried Noodles",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 23000,
+      "image": "https://source.unsplash.com/600x400?fried+noodles"
+    },
+    {
+      "id": 27,
+      "name": "Honey Glazed Chicken",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 28000,
+      "image": "https://source.unsplash.com/600x400?honey+glazed+chicken"
+    },
+    {
+      "id": 28,
+      "name": "Beef Noodles",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 24000,
+      "image": "https://source.unsplash.com/600x400?beef+noodles"
+    },
+    {
+      "id": 29,
+      "name": "Baked Salmon",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 38000,
+      "image": "https://source.unsplash.com/600x400?baked+salmon"
+    },
+    {
+      "id": 30,
+      "name": "Carbonara",
+      "category": {
+        "id": 1,
+        "name": "Main"
+      },
+      "price": 20000,
+      "image": "https://source.unsplash.com/600x400?carbonara"
+    },
+    {
+      "id": 31,
+      "name": "Mocha",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 24000,
+      "image": "https://source.unsplash.com/600x400?mocha"
+    },
+    {
+      "id": 32,
+      "name": "Flat White",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 21000,
+      "image": "https://source.unsplash.com/600x400?flat+white"
+    },
+    {
+      "id": 33,
+      "name": "Matcha Latte",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 25000,
+      "image": "https://source.unsplash.com/600x400?matcha"
+    },
+    {
+      "id": 34,
+      "name": "Iced Coffee",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 16000,
+      "image": "https://source.unsplash.com/600x400?iced+coffe"
+    },
+    {
+      "id": 35,
+      "name": "Watermelon Juice",
+      "category": {
+        "id": 2,
+        "name": "Appetizers"
+      },
+      "price": 20000,
+      "image": "https://source.unsplash.com/600x400?watermelon+juice"
+    },
+    {
+      "id": 36,
+      "name": "Raspberry Danish",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 19000,
+      "image": "https://source.unsplash.com/600x400?raspberry+danish"
+    },
+    {
+      "id": 37,
+      "name": "Cinnamon Roll",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?cinnamon+roll"
+    },
+    {
+      "id": 38,
+      "name": "Red Velvet Cupcake",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 20000,
+      "image": "https://source.unsplash.com/600x400?red+velvet+cupcake"
+    },
+    {
+      "id": 39,
+      "name": "Lemon Tart",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 22000,
+      "image": "https://source.unsplash.com/600x400?lemon+tart"
+    },
+    {
+      "id": 40,
+      "name": "Tiramisu",
+      "category": {
+        "id": 3,
+        "name": "Sides"
+      },
+      "price": 26000,
+      "image": "https://source.unsplash.com/600x400?tiramisu"
+    },
+    {
+      "id": 41,
+      "name": "Nicoise Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 35000,
+      "image": "https://source.unsplash.com/600x400?nicoise+salad"
+    },
+    {
+      "id": 42,
+      "name": "Spinach Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 26000,
+      "image": "https://source.unsplash.com/600x400?spinach+salad"
+    },
+    {
+      "id": 43,
+      "name": "Quinoa Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 30000,
+      "image": "https://source.unsplash.com/600x400?quinoa+salad"
+    },
+    {
+      "id": 44,
+      "name": "Mixed Green Salad",
+      "category": {
+        "id": 4,
+        "name": "Desserts"
+      },
+      "price": 28000,
+      "image": "https://source.unsplash.com/600x400?green+salad"
+    },
+    {
+      "id": 45,
+      "name": "Chicken Noodle Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 23000,
+      "image": "https://source.unsplash.com/600x400?chicken+noodle"
+    },
+    {
+      "id": 46,
+      "name": "Potato Leek Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 19000,
+      "image": "https://source.unsplash.com/600x400?potato+leek"
+    },
+    {
+      "id": 47,
+      "name": "Hot and Sour Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 21000,
+      "image": "https://source.unsplash.com/600x400?sour+soup"
+    },
+    {
+      "id": 48,
+      "name": "Cream of Mushroom Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 22000,
+      "image": "https://source.unsplash.com/600x400?cream+soup"
+    },
+    {
+      "id": 49,
+      "name": "Vegetable Soup",
+      "category": {
+        "id": 5,
+        "name": "Beverages"
+      },
+      "price": 18000,
+      "image": "https://source.unsplash.com/600x400?vegetable+soup"
+    }
+  ]
+}
