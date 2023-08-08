@@ -60,7 +60,7 @@ export default function Employee({ user }) {
   const [isClockOut, setIsClockOut] = useState(false);
 
   useEffect(() => {
-    const today = new Date("2023-08-09").toLocaleDateString();
+    const today = new Date("2023-08-01").toLocaleDateString();
     // const today = new Date().toLocaleDateString();
 
     const clockInToday =
@@ -113,7 +113,7 @@ export default function Employee({ user }) {
             isPrimary
             title="Clock Out"
             className="w-40"
-            isDisabled={!isClockOut}
+            isDisabled={isClockOut}
             onClick={() => handleAttendance("clockout")}
           />
         </div>
@@ -127,7 +127,6 @@ export default function Employee({ user }) {
               <th className="p-3">Date</th>
               <th className="p-3">Clock In</th>
               <th className="p-3">Clock Out</th>
-              <th className="p-3">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -159,8 +158,6 @@ export default function Employee({ user }) {
                   <td className="p-3">{item.date}</td>
                   <td className="p-3">{item.clockIn}</td>
                   <td className="p-3">{item.clockOut}</td>
-
-                  <td className="p-3">actions</td>
                 </motion.tr>
               ))
             ) : (
