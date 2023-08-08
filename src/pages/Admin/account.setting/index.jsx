@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../../components/Button";
 import PasswordSetting from "../../../components/PasswordSetting";
-import ImageSetting from "./image.setting";
 import { useEffect } from "react";
 
 export default function AdminAccountSetting({ user }) {
@@ -14,11 +13,7 @@ export default function AdminAccountSetting({ user }) {
       path: "/admin/account-setting/password",
       context: "password",
     },
-    {
-      title: "Change Image",
-      path: "/admin/account-setting/change-image",
-      context: "change-image",
-    },
+
   ];
 
   useEffect(() => {
@@ -50,7 +45,6 @@ export default function AdminAccountSetting({ user }) {
 
         {context === "password" && <PasswordSetting />}
 
-        {context === "change-image" && <ImageSetting />}
       </div>
     </div>
   );

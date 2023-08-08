@@ -38,7 +38,6 @@ export default function Payroll({ user }) {
 
   const attendances = payrollReport?.attendances;
 
-  console.log(payrollReport);
   return (
     <div className="container  px-4 py-24">
       <h3>Payroll Report</h3>

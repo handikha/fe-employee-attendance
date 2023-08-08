@@ -21,8 +21,6 @@ export default function RenderUserModals({
         roles: state.roles.data,
 
         success: state.users.success,
-        // current_page: state.products.current_page,
-        // total_pages: state.products.total_pages,
         isDeleteUserLoading: state.users.isDeleteUserLoading,
         isSubmitUserLoading: state.users.isSubmitUserLoading,
       };

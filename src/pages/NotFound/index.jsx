@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
 
 export default function NotFound() {
   return (

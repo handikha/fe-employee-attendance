@@ -5,9 +5,6 @@ export default function ProfileCard({
   profileImg,
   username,
   fullName,
-  handleShowModal,
-  isVerified,
-  context,
 }) {
   const profileMenus = [
     {

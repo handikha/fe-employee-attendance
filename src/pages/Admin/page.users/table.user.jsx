@@ -1,14 +1,7 @@
-import {
-  BsCheckLg,
-  BsDash,
-  BsSortAlphaDown,
-  BsSortAlphaUp,
-  BsXLg,
-} from "react-icons/bs";
+
 import Button from "../../../components/Button";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { getUsers } from "../../../store/slices/users/slices";
+
 import { HiOutlinePencilSquare, HiOutlineTrash } from "react-icons/hi2";
 import formatNumber from "../../../utils/formatNumber";
 

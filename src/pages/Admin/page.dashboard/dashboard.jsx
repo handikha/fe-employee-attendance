@@ -4,7 +4,6 @@ import { getAttendances } from "../../../store/slices/attendances/slices";
 import { motion } from "framer-motion";
 import Button from "../../../components/Button";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
-import RenderAttendanceModal from "./modals";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -32,7 +31,6 @@ export default function Dashboard() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    // dispatch(resetSuccessUser());
   };
 
   return (
@@ -47,7 +45,6 @@ export default function Dashboard() {
               <th className="p-3">Name</th>
               <th className="p-3">Clock In</th>
               <th className="p-3">Clock Out</th>
-              <th className="p-3">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -80,15 +77,6 @@ export default function Dashboard() {
                   <td className="p-3">{item.fullName}</td>
                   <td className="p-3">{item.clockIn}</td>
                   <td className="p-3">{item.clockOut}</td>
-
-                  <td className="p-3">
-                    <Button
-                      isSmall
-                      isWarning
-                      onClick={() => handleShowModal("Edit", item?.id)}
-                      title={<HiOutlinePencilSquare className="text-lg" />}
-                    />
-                  </td>
                 </motion.tr>
               ))
             ) : (
@@ -102,12 +90,7 @@ export default function Dashboard() {
         </table>
       </div>
 
-      <RenderAttendanceModal
-        showModal={showModal.show}
-        type={showModal.type}
-        selectedAttendance={selectedAttendance}
-        handleCloseModal={handleCloseModal}
-      />
+
     </>
   );
 }

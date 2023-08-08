@@ -4,7 +4,6 @@ import { FaPlus } from "react-icons/fa6";
 import Button from "../../../components/Button";
 import { getUsers, resetSuccessUser } from "../../../store/slices/users/slices";
 import { getRoles } from "../../../store/slices/roles/slices";
-import Input from "../../../components/Input";
 import UsersTable from "./table.user";
 import RenderUserModals from "./modals";
 
