@@ -145,7 +145,7 @@ export default function RenderUserModals({
       {showModal && type === "Change Status" && (
         <Modal
           showModal={showModal}
-          title={`${type} Product`}
+          title={`${type} User`}
           closeModal={() => handleCloseModal()}
         >
           {success ? (
@@ -161,7 +161,7 @@ export default function RenderUserModals({
                 ) : (
                   <span className="text-primary"> activate </span>
                 )}
-                <span className="font-bold">{selectedUser.name}</span>?
+                <span className="font-bold">{selectedUser.fullName}</span>?
               </p>
 
               <div className="mt-4 flex justify-end gap-2">
