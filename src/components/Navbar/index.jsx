@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-// import ToTop from "../ToTop";
 import Modal from "../Modal";
 import NavBrand from "./nav.brand";
 import ThemeButton from "./theme.button";
@@ -56,12 +55,6 @@ export default function Navbar({ user }) {
           </div>
         </motion.div>
       </AnimatePresence>
-
-      {/* <ToTop
-        className={
-          isScrolled && !isNavActive ? "translate-y-0" : "translate-y-[150%]"
-        }
-      /> */}
 
       <Modal
         showModal={showModal.show}

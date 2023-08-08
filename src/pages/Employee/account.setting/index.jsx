@@ -3,7 +3,6 @@ import Button from "../../../components/Button";
 
 import PasswordSetting from "../../../components/PasswordSetting";
 import { useEffect } from "react";
-import ImageSetting from "./image.setting";
 
 export default function CashierAccountSetting({ user }) {
   const navigate = useNavigate();
@@ -14,11 +13,6 @@ export default function CashierAccountSetting({ user }) {
       title: "Password",
       path: "/cashier/account-setting/password",
       context: "password",
-    },
-    {
-      title: "Change Image",
-      path: "/cashier/account-setting/change-image",
-      context: "change-image",
     },
   ];
 
@@ -51,7 +45,6 @@ export default function CashierAccountSetting({ user }) {
 
         {context === "password" && <PasswordSetting />}
 
-        {context === "change-image" && <ImageSetting />}
       </div>
     </div>
   );

@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Cashier from "./pages/Cashier";
+import Employee from "./pages/Employee";
 import Admin from "./pages/Admin";
 import AdminAccountSetting from "./pages/Admin/account.setting";
-import CashierAccountSetting from "./pages/Cashier/account.setting";
+import EmployeeAccountSetting from "./pages/Employee/account.setting";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
-import ChangeDefaultPassword from "./pages/ChangeDefaultPassword";
+import ChangeDefaultPassword from "./pages/Verification";
 import { Toaster } from "react-hot-toast";
 import { keepLogin } from "./store/slices/auth/slices";
 import { useSelector, useDispatch } from "react-redux";
+import ProtectedRoute from "./protected.routes";
+import Payroll from "./pages/Employee/payroll";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +31,8 @@ function App() {
     });
   }, []);
 
+  const token = localStorage.getItem("token");
+
   if (loading) {
     return (
       <div className="flex h-screen w-screen items-center justify-center">
@@ -41,7 +45,7 @@ function App() {
 
   return (
     <>
-      {user.id && <Navbar user={user} />}
+      {token && <Navbar user={user} />}
 
       <Routes>
         <Route exact path="/" element={<Login />} />
@@ -52,7 +56,7 @@ function App() {
         />
         <Route
           exact
-          path="/auth/change-password/:token"
+          path="/auth/verify/:token"
           element={<ChangeDefaultPassword />}
         />
 
@@ -69,10 +73,14 @@ function App() {
 
         {user?.roleId !== 1 && (
           <>
-            <Route path="/employee" element={<Cashier />} />
+            <Route path="/employee" element={<Employee user={user} />} />
+            <Route
+              path="/employee/payroll-report"
+              element={<Payroll user={user} />}
+            />
             <Route
               path="/employee/account-setting/:context"
-              element={<CashierAccountSetting user={user} />}
+              element={<EmployeeAccountSetting user={user} />}
             />
           </>
         )}

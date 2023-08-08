@@ -40,9 +40,13 @@ export const keepLogin = createAsyncThunk(
 
 export const verifyAccount = createAsyncThunk(
   "auth/verifyAccount",
-  async (payload, { rejectWithValue }) => {
+  async ({ token, verificationData }, { rejectWithValue }) => {
     try {
-      await api.patch("/auth/verify");
+      const { data } = await api.patch(
+        `/auth/verify/${token}`,
+        verificationData
+      );
+      Toast.success(data.message);
       return;
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data.err : error);

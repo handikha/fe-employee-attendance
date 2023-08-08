@@ -2,11 +2,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../utils/api.instance";
 import Toast from "react-hot-toast";
 
-export const getRoles = createAsyncThunk(
-  "roles/getRoles",
+export const getPayrollData = createAsyncThunk(
+  "payroll/getPayrollData",
   async (payload, { rejectWithValue }) => {
     try {
-      const { data } = await api.get("/roles");
+      const { startDate, endDate } = payload;
+      const PARAMETER = `startDate=${startDate}&endDate=${endDate}`;
+      const { data } = await api.get("/payroll?" + encodeURI(PARAMETER));
       return data;
     } catch (error) {
       Toast.error(error.response.data.message);
@@ -14,7 +16,3 @@ export const getRoles = createAsyncThunk(
     }
   }
 );
-
-export const resetSuccessRole = () => ({
-  type: "roles/resetSuccessRole",
-});

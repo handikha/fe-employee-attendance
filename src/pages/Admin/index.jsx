@@ -3,7 +3,6 @@ import ProfileCard from "./profile.card";
 import Dashboard from "./page.dashboard/dashboard";
 import { Toaster } from "react-hot-toast";
 import Users from "./page.users";
-import Categories from "./page.roles";
 import { useEffect } from "react";
 
 export default function Admin({ user }) {
@@ -12,12 +11,9 @@ export default function Admin({ user }) {
   const { context } = useParams();
 
   useEffect(() => {
-    const allowedContext = [
-      "dashboard",
-      "users",
-      "categories",
-      "transactions",
-    ].find((item) => item === context);
+    const allowedContext = ["dashboard", "users"].find(
+      (item) => item === context
+    );
 
     if (!allowedContext) {
       return navigate("/not-found", { replace: true });
@@ -43,7 +39,6 @@ export default function Admin({ user }) {
           <div className="col-span-full md:col-span-3">
             {context === "dashboard" && <Dashboard />}
             {context === "users" && <Users />}
-            {context === "categories" && <Categories />}
           </div>
         </div>
       </div>

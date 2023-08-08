@@ -110,7 +110,7 @@ export default function RenderUserModals({
         >
           {success ? (
             <SuccessMessage
-              message={`User ${selectedUser.name} deleted successfully`}
+              message={`User ${selectedUser.fullName} deleted successfully`}
             />
           ) : (
             <>

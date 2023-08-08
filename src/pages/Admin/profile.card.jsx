@@ -18,14 +18,6 @@ export default function ProfileCard({
       title: "Users",
       path: "/admin/users",
     },
-    {
-      title: "Categories",
-      path: "/admin/categories",
-    },
-    {
-      title: "Transactions",
-      path: "/admin/transactions",
-    }
   ];
 
   const location = useLocation();

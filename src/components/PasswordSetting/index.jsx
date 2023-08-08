@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import { changePassword } from "../../store/slices/auth/slices";
-import { changePasswordSchema } from "../../store/slices/auth/validation";
+import { changePasswordValidationSchema } from "../../store/slices/auth/validation";
 import { useDispatch } from "react-redux";
 
 export default function PasswordSetting() {
@@ -24,7 +24,7 @@ export default function PasswordSetting() {
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
-      changePasswordSchema.validateSync(values);
+      changePasswordValidationSchema.validateSync(values);
       dispatch(changePassword(values));
     } catch (error) {
       setErrors(error.errors);

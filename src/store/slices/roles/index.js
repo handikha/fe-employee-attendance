@@ -14,8 +14,6 @@ const INITIAL_STATE = {
   current_page: null,
   next_page: null,
   isGetRolesLoading: false,
-  // isSubmitCategoryLoading: false,
-  // isDeleteCategoryLoading: false,
 };
 
 const categoriesSlice = createSlice({

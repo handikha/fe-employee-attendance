@@ -67,11 +67,11 @@ export default function Login() {
     }
   }, []);
 
-  if (role === 1) {
+  if (role && role === 1) {
     return <Navigate to="/admin/dashboard" replace />;
   }
 
-  if (role !== 1) {
+  if (role && role !== 1) {
     return <Navigate to="/employee" replace />;
   }
 
@@ -114,7 +114,6 @@ export default function Login() {
               isPrimary
               title="Login"
               className=" mt-4 w-full select-none shadow-md"
-              // onClick={handleSubmit}
               type="submit"
             />
 

@@ -19,7 +19,6 @@ export default function InputUser({ userData, roles }) {
 
   const [file, setFile] = useState(null);
   const [userDataImage, setUserDataImage] = useState(null);
-  // const [previewImage, setPreviewImage] = useState(null);
 
   const { isSubmitUserLoading } = useSelector((state) => {
     return {
@@ -51,7 +50,6 @@ export default function InputUser({ userData, roles }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Data product (JSON)
     const inputUserData = {
       username: usernameRef.current?.value,
       email: emailRef.current?.value,

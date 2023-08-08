@@ -56,7 +56,7 @@ export const deleteUser = createAsyncThunk(
   "users/deleteUser",
   async (payload, { rejectWithValue }) => {
     try {
-      await api.delete("/products/" + encodeURI(payload));
+      await api.delete("/employees/" + encodeURI(payload));
       // Toast.success("Category deleted successfully");
     } catch (error) {
       Toast.error(error.response.data.message);

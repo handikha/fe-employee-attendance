@@ -20,7 +20,6 @@ export default function NavMenu({
   isNavActive,
   user,
 }) {
-
   // SCROLL AND RESIZE HANDLER
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +86,7 @@ export default function NavMenu({
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("theme")
+    localStorage.removeItem("theme");
     dispatch(logout());
     navigate("/");
   };
@@ -132,20 +131,32 @@ export default function NavMenu({
         </AnimatePresence>
 
         <Button
-          path={user?.roleId === 1 ? "/admin/dashboard" : "/cashier"}
+          path={user?.roleId === 1 ? "/admin/dashboard" : "/employee"}
           className={`nav-menu-item flex items-center gap-3`}
           isLink
           onClick={closeNavMenu}
         >
           <HiOutlineSquares2X2 className="text-xl md:hidden" />
-          {user?.roleId === 1 ? "Dashboard" : "Products"}
+          {user?.roleId === 1 ? "Dashboard" : "Attendance"}
         </Button>
+
+        {user?.roleId !== 1 && (
+          <Button
+            path={"/employee/payroll-report"}
+            className={`nav-menu-item flex items-center gap-3`}
+            isLink
+            onClick={closeNavMenu}
+          >
+            <HiOutlineSquares2X2 className="text-xl md:hidden" />
+            Payroll
+          </Button>
+        )}
       </div>
 
       <div className={`flex items-center gap-6`}>
         <div className="profile-img-wrapper relative row-start-2 flex w-full items-center gap-4">
           <div
-            className={`nav-profile-img aspect-square w-8 cursor-pointer self-center overflow-hidden rounded-full bg-primary md:mb-0 md:block ${
+            className={`nav-profile-img flex aspect-square w-8 cursor-pointer items-center justify-center self-center overflow-hidden rounded-full bg-primary md:mb-0 md:block ${
               isNavActive && "-z-10"
             }`}
             onClick={() => {
@@ -157,10 +168,11 @@ export default function NavMenu({
             }}
           >
             <img
-              src={"http://127.0.0.1:5000/" + user?.profileImg}
+              src={"http://127.0.0.1:5000/" + user?.image}
               alt=""
               className="h-full w-full object-cover"
             />
+            {/* <div className="text-white">A</div> */}
           </div>
 
           <AnimatePresence>
@@ -197,7 +209,7 @@ export default function NavMenu({
                     path={
                       user?.roleId === 1
                         ? "/admin/account-setting/password"
-                        : "/cashier/account-setting/password"
+                        : "/employee/account-setting/password"
                     }
                   >
                     <HiOutlineCog6Tooth className="text-xl" />
