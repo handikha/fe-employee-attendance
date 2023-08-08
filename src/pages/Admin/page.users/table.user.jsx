@@ -74,7 +74,7 @@ export default function UsersTable({
               <td className="p-3">
                 <div className="aspect-[4/3] w-10">
                   <img
-                    src={process.env.REACT_APP_PRODUCT_IMAGE_URL + item.image}
+                    src={process.env.REACT_APP_USER_IMAGE_URL + item.image}
                     alt={`${item.fullName}`}
                     className="h-full w-full object-cover"
                   />

@@ -66,7 +66,7 @@ export default function RenderUserModals({
             <div className="aspect-[5/3] w-full overflow-hidden rounded-lg">
               <img
                 src={
-                  process.env.REACT_APP_PRODUCT_IMAGE_URL + selectedUser?.image
+                  process.env.REACT_APP_USER_IMAGE_URL + selectedUser?.image
                 }
                 alt={`${selectedUser.fullName}`}
                 className="h-full w-full object-cover "
