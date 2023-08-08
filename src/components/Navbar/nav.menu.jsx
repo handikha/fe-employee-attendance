@@ -132,13 +132,13 @@ export default function NavMenu({
         </AnimatePresence>
 
         <Button
-          path={user?.role === 1 ? "/admin/dashboard" : "/cashier"}
+          path={user?.roleId === 1 ? "/admin/dashboard" : "/cashier"}
           className={`nav-menu-item flex items-center gap-3`}
           isLink
           onClick={closeNavMenu}
         >
           <HiOutlineSquares2X2 className="text-xl md:hidden" />
-          {user?.role === 1 ? "Dashboard" : "Products"}
+          {user?.roleId === 1 ? "Dashboard" : "Products"}
         </Button>
       </div>
 
@@ -195,7 +195,7 @@ export default function NavMenu({
                     }}
                     isLink
                     path={
-                      user?.role === 1
+                      user?.roleId === 1
                         ? "/admin/account-setting/password"
                         : "/cashier/account-setting/password"
                     }

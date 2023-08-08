@@ -1,11 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ProfileCard from "./profile.card";
-import UsersTable from "./page.users/table.users";
 import Dashboard from "./page.dashboard/dashboard";
 import { Toaster } from "react-hot-toast";
-import Products from "./page.products";
-import Categories from "./page.categories";
-import Transactions from "./page.transactions";
+import Users from "./page.users";
+import Categories from "./page.roles";
 import { useEffect } from "react";
 
 export default function Admin({ user }) {
@@ -16,10 +14,9 @@ export default function Admin({ user }) {
   useEffect(() => {
     const allowedContext = [
       "dashboard",
-      "products",
       "users",
       "categories",
-      "transactions"
+      "transactions",
     ].find((item) => item === context);
 
     if (!allowedContext) {
@@ -45,10 +42,8 @@ export default function Admin({ user }) {
 
           <div className="col-span-full md:col-span-3">
             {context === "dashboard" && <Dashboard />}
-            {context === "products" && <Products />}
-            {context === "users" && <UsersTable />}
+            {context === "users" && <Users />}
             {context === "categories" && <Categories />}
-            {context === "transactions" && <Transactions />}
           </div>
         </div>
       </div>

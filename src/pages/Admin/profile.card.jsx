@@ -15,10 +15,6 @@ export default function ProfileCard({
       path: "/admin/dashboard",
     },
     {
-      title: "Products",
-      path: "/admin/products",
-    },
-    {
       title: "Users",
       path: "/admin/users",
     },

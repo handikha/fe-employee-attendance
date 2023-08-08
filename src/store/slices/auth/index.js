@@ -8,11 +8,13 @@ import {
   forgetPassword,
   verifyAccount,
   resetPassword,
-  changePassword, changeProfileImage,
+  changePassword,
+  changeProfileImage,
 } from "./slices";
 
 // @initial state
 const INITIAL_STATE = {
+  data: [],
   //@loading state
   isLoginLoading: false,
   isKeepLoginLoading: false,
@@ -22,16 +24,6 @@ const INITIAL_STATE = {
   isResetPasswordLoading: false,
   isChangePasswordLoading: false,
   isChangeProfileImageLoading: false,
-
-  //@user state
-  id: null,
-  fullName: "",
-  username: "",
-  email: "",
-  phone: "",
-  role: "",
-  status: "",
-  profileImg: "",
 
   //@keep login state
   isKeepLogin: false,
@@ -52,22 +44,10 @@ const authSlice = createSlice({
       state.isLoginLoading = true;
     },
     [login.fulfilled]: (state, action) => {
-      state = Object.assign(state, {
-        isLoginLoading: false,
-        id: action.payload?.id,
-        fullName: action.payload?.fullName,
-        username: action.payload?.username,
-        email: action.payload?.email,
-        phone: action.payload?.phone,
-        role: action.payload?.role,
-        status: action.payload?.status,
-        profileImg: action.payload?.profileImg,
-        isLogin: true,
-      });
+      state.data = action.payload;
     },
     [login.rejected]: (state, action) => {
       state.isLoginLoading = false;
-      state = Object.assign(state, INITIAL_STATE);
     },
 
     //@Keep login
@@ -75,24 +55,13 @@ const authSlice = createSlice({
       state.isKeepLoginLoading = true;
     },
     [keepLogin.fulfilled]: (state, action) => {
-      state = Object.assign(state, {
-        id: action.payload?.id,
-        fullName: action.payload?.fullName,
-        username: action.payload?.username,
-        email: action.payload?.email,
-        phone: action.payload?.phone,
-        role: action.payload?.role,
-        status: action.payload?.status,
-        profileImg: action.payload?.profileImg,
-        isKeepLogin: true,
-        isKeepLoginLoading: false,
-      });
+      state.data = action.payload;
+      state.isKeepLogin = true;
+      state.isKeepLoginLoading = false;
     },
     [keepLogin.rejected]: (state, action) => {
-      state = Object.assign(state, {
-        isKeepLoginLoading: false,
-        isKeepLogin: false,
-      });
+      state.isKeepLogin = false;
+      state.isKeepLoginLoading = false;
     },
 
     //@Verify Account
@@ -161,7 +130,7 @@ const authSlice = createSlice({
     },
     [changeProfileImage.rejected]: (state, action) => {
       state.isChangeProfileImageLoading = false;
-    }
+    },
   },
 });
 

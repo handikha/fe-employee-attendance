@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiOutlineFunnel } from "react-icons/hi2";
-import { getProducts } from "../../../store/slices/products/slices";
+import { getProducts } from "../../../store/slices/users/slices";
 import { useDispatch } from "react-redux";
 import Button from "../../../components/Button";
 

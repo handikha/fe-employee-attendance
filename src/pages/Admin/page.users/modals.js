@@ -1,41 +1,35 @@
 import React from "react";
 import Modal from "../../../components/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteProduct,
-  updateProduct,
-} from "../../../store/slices/products/slices";
+import { deleteUser, updateUser } from "../../../store/slices/users/slices";
 import Button from "../../../components/Button";
 import SuccessMessage from "../../../components/SuccessMessage";
-import InputProduct from "./input.product";
+import InputUser from "./input.user";
 import formatNumber from "../../../utils/formatNumber";
 
-export default function RenderProductModals({
+export default function RenderUserModals({
   showModal,
   type,
-  selectedProduct,
+  selectedUser,
   handleCloseModal,
-  category,
+  role,
 }) {
   const dispatch = useDispatch();
-  const {
-    categories,
-    success,
-    isDeleteProductLoading,
-    isSubmitProductLoading,
-  } = useSelector((state) => {
-    return {
-      categories: state.categories.data,
-      success: state.products.success,
-      current_page: state.products.current_page,
-      total_pages: state.products.total_pages,
-      isDeleteProductLoading: state.products.isDeleteProductLoading,
-      isSubmitProductLoading: state.products.isSubmitProductLoading,
-    };
-  });
+  const { roles, success, isDeleteUserLoading, isSubmitUserLoading } =
+    useSelector((state) => {
+      return {
+        roles: state.roles.data,
+
+        success: state.users.success,
+        // current_page: state.products.current_page,
+        // total_pages: state.products.total_pages,
+        isDeleteUserLoading: state.users.isDeleteUserLoading,
+        isSubmitUserLoading: state.users.isSubmitUserLoading,
+      };
+    });
 
   const handleDeleteProduct = (id) => {
-    dispatch(deleteProduct(id));
+    dispatch(deleteUser(id));
   };
 
   const handleUpdateStatus = (id, status) => {
@@ -45,7 +39,7 @@ export default function RenderProductModals({
 
     const formData = new FormData();
     formData.append("data", JSON.stringify(inputProductData));
-    dispatch(updateProduct({ id, formData }));
+    dispatch(updateUser({ id, formData }));
   };
 
   return (
@@ -53,13 +47,13 @@ export default function RenderProductModals({
       {showModal && type === "Add" && (
         <Modal
           showModal={showModal}
-          title={`${type} Product`}
+          title={`${type} User`}
           closeModal={() => handleCloseModal()}
         >
           {success ? (
-            <SuccessMessage message={`Product added successfully`} />
+            <SuccessMessage message={`User added successfully`} />
           ) : (
-            <InputProduct categories={categories} />
+            <InputUser roles={roles} />
           )}
         </Modal>
       )}
@@ -67,23 +61,27 @@ export default function RenderProductModals({
       {showModal && type === "Details" && (
         <Modal
           showModal={showModal}
-          title={`${type} Product`}
+          title={`${type} User`}
           closeModal={() => handleCloseModal()}
         >
           <div className="flex flex-col">
             <div className="aspect-[5/3] w-full overflow-hidden rounded-lg">
               <img
-                src={process.env.REACT_APP_PRODUCT_IMAGE_URL + selectedProduct.image}
-                alt={`${selectedProduct.name}`}
+                src={
+                  process.env.REACT_APP_PRODUCT_IMAGE_URL + selectedUser?.image
+                }
+                alt={`${selectedUser.fullName}`}
                 className="h-full w-full object-cover "
               />
             </div>
-            <h3 className="title mt-4">{selectedProduct.name}</h3>
-            <p>{category}</p>
-            <p className="card-price mt-2">
-              IDR {formatNumber(selectedProduct.price)}
+            <h3 className="title mt-4">{selectedUser.fullName}</h3>
+            <p className="capitalize text-primary">{role}</p>
+            <p className="">{selectedUser.email}</p>
+            <p className="mt-2">
+              Salary : IDR {formatNumber(selectedUser.salary)}
             </p>
-            <p className="mt-4">{selectedProduct.description}</p>
+            <p className="">Birthdate : {selectedUser.birthdate}</p>
+            <p className="">Join Date : {selectedUser.joinDate}</p>
           </div>
         </Modal>
       )}
@@ -91,18 +89,15 @@ export default function RenderProductModals({
       {showModal && type === "Edit" && (
         <Modal
           showModal={showModal}
-          title={`${type} Product`}
+          title={`${type} User`}
           closeModal={() => handleCloseModal()}
         >
           {success ? (
             <SuccessMessage
-              message={`Product ${selectedProduct.name} updated successfully`}
+              message={`User ${selectedUser.fullName} updated successfully`}
             />
           ) : (
-            <InputProduct
-              productData={selectedProduct}
-              categories={categories}
-            />
+            <InputUser userData={selectedUser} roles={roles} />
           )}
         </Modal>
       )}
@@ -110,25 +105,25 @@ export default function RenderProductModals({
       {showModal && type === "Delete" && (
         <Modal
           showModal={showModal}
-          title={`${type} Product`}
+          title={`${type} User`}
           closeModal={() => handleCloseModal()}
         >
           {success ? (
             <SuccessMessage
-              message={`Product ${selectedProduct.name} deleted successfully`}
+              message={`User ${selectedUser.name} deleted successfully`}
             />
           ) : (
             <>
               <p className="modal-text">
                 Are you sure to delete{" "}
-                <span className="font-bold">{selectedProduct.name}</span>?{" "}
+                <span className="font-bold">{selectedUser.name}</span>?{" "}
                 <p className="modal-text">
                   You won't be able to undo the changes after deleting.
                 </p>
               </p>
 
               <div className="mt-4 flex justify-end gap-2">
-                {!isDeleteProductLoading && (
+                {!isDeleteUserLoading && (
                   <Button
                     title="No"
                     isButton
@@ -140,8 +135,8 @@ export default function RenderProductModals({
                   title="Yes"
                   isButton
                   isDanger
-                  isLoading={isDeleteProductLoading}
-                  onClick={() => handleDeleteProduct(selectedProduct.id)}
+                  isLoading={isDeleteUserLoading}
+                  onClick={() => handleDeleteProduct(selectedUser.id)}
                 />
               </div>
             </>
@@ -157,22 +152,22 @@ export default function RenderProductModals({
         >
           {success ? (
             <SuccessMessage
-              message={`${selectedProduct.name} status changed successfully`}
+              message={`${selectedUser.name} status changed successfully`}
             />
           ) : (
             <>
               <p className="modal-text">
                 Are you sure to
-                {selectedProduct.status === 1 ? (
+                {selectedUser.status === 1 ? (
                   <span className="text-red-500"> deactive </span>
                 ) : (
                   <span className="text-primary"> activate </span>
                 )}
-                <span className="font-bold">{selectedProduct.name}</span>?
+                <span className="font-bold">{selectedUser.name}</span>?
               </p>
 
               <div className="mt-4 flex justify-end gap-2">
-                {!isSubmitProductLoading && (
+                {!isSubmitUserLoading && (
                   <Button
                     title="No"
                     isButton
@@ -183,12 +178,12 @@ export default function RenderProductModals({
                 <Button
                   title="Yes"
                   isButton
-                  isPrimary={selectedProduct.status === 0}
-                  isDanger={selectedProduct.status === 1}
-                  isLoading={isSubmitProductLoading}
+                  isPrimary={selectedUser.status === 0}
+                  isDanger={selectedUser.status === 1}
+                  isLoading={isSubmitUserLoading}
                   onClick={() =>
-                    handleUpdateStatus(selectedProduct.id, () => {
-                      if (selectedProduct.status === 1) {
+                    handleUpdateStatus(selectedUser.id, () => {
+                      if (selectedUser.status === 1) {
                         return 0;
                       }
 

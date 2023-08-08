@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 import { BsDash, BsSortAlphaDown, BsSortAlphaUp } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { HiOutlinePencilSquare, HiOutlineTrash } from "react-icons/hi2";
-import { getCategories } from "../../../store/slices/categories/slices";
+import { getCategories } from "../../../store/slices/roles/slices";
 import { useDispatch } from "react-redux";
 
 export default function CategoriesTable({

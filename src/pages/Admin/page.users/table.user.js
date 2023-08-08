@@ -1,6 +1,4 @@
 import {
-  BsArrowDownShort,
-  BsArrowUpShort,
   BsCheckLg,
   BsDash,
   BsSortAlphaDown,
@@ -10,17 +8,17 @@ import {
 import Button from "../../../components/Button";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { getProducts } from "../../../store/slices/products/slices";
+import { getUsers } from "../../../store/slices/users/slices";
 import { HiOutlinePencilSquare, HiOutlineTrash } from "react-icons/hi2";
 import formatNumber from "../../../utils/formatNumber";
 
-export default function ProductsTable({
-  products,
-  isGetProductsLoading,
+export default function UsersTable({
+  users,
+  isGetUsersLoading,
   current_page,
   handleShowModal,
   selectedCategory,
-  categories,
+  roles,
   sortName,
   setSortName,
   sortPrice,
@@ -32,10 +30,6 @@ export default function ProductsTable({
   const dispatch = useDispatch();
 
   const handleSort = (type, sortBy) => {
-    if (sortBy === "price") {
-      setSortStatus("");
-      setSortName(null);
-    }
     if (sortBy === "name") {
       setSortStatus("");
       setSortPrice(null);
@@ -51,7 +45,7 @@ export default function ProductsTable({
     if (type === "DESC" && sortBy === "price") setSortPrice(false);
 
     dispatch(
-      getProducts({
+      getUsers({
         category_id: selectedCategory,
         page: 1,
         sort_name: sortBy === "name" ? type : "",
@@ -63,9 +57,9 @@ export default function ProductsTable({
     );
   };
 
-  const getCategoryByName = (id) => {
-    const category = categories.find((item) => item.id === id);
-    return category?.name;
+  const getRoleByName = (id) => {
+    const role = roles.find((item) => item.id === id);
+    return role?.name;
   };
 
   return (
@@ -75,7 +69,7 @@ export default function ProductsTable({
           <th className="p-3">#</th>
           <th className="p-3">
             <span className="flex items-center gap-1">
-              Product Name{" "}
+              Name{" "}
               {sortName === null ? (
                 <Button
                   isSmall
@@ -106,40 +100,9 @@ export default function ProductsTable({
               )}
             </span>
           </th>
-          <th className="p-3">Category</th>
-          <th className="p-3">
-            <span className="flex items-center gap-1">
-              Price{" "}
-              {sortPrice === null ? (
-                <Button
-                  isSmall
-                  title={<BsDash />}
-                  className="bg-light p-1 duration-300 dark:bg-dark-gray"
-                  onClick={() => {
-                    handleSort("ASC", "price");
-                  }}
-                />
-              ) : sortPrice ? (
-                <Button
-                  isSmall
-                  title={<BsArrowUpShort className="text-xl" />}
-                  className="bg-light p-1 duration-300 dark:bg-dark-gray"
-                  onClick={() => {
-                    handleSort("DESC", "price");
-                  }}
-                />
-              ) : (
-                <Button
-                  isSmall
-                  title={<BsArrowDownShort className="text-xl" />}
-                  className="bg-light p-1 duration-300 dark:bg-dark-gray"
-                  onClick={() => {
-                    handleSort("ASC", "price");
-                  }}
-                />
-              )}
-            </span>
-          </th>
+          <th className="p-3">Username</th>
+          <th className="p-3">Role</th>
+          <th className="p-3">Salary</th>
           <th className="p-3">Image</th>
           <th className="p-3">
             <span className="flex items-center gap-1">
@@ -185,7 +148,7 @@ export default function ProductsTable({
         </tr>
       </thead>
       <tbody>
-        {isGetProductsLoading ? (
+        {isGetUsersLoading ? (
           <tr className="text-center">
             <td colSpan={7} className="p-3">
               <div className="mx-auto block h-6 w-6 animate-spin rounded-full border-[3px] border-r-transparent">
@@ -193,14 +156,14 @@ export default function ProductsTable({
               </div>
             </td>
           </tr>
-        ) : products.length === 0 ? (
+        ) : users.length === 0 ? (
           <tr className="text-center">
             <td colSpan={7} className="p-3">
               No data to display
             </td>
           </tr>
         ) : (
-          products?.map((item, index) => (
+          users?.map((item, index) => (
             <motion.tr
               initial={{
                 opacity: 0,
@@ -215,16 +178,17 @@ export default function ProductsTable({
                 scope="row"
                 className="text-gray-900 whitespace-nowrap p-3 font-medium dark:text-white"
               >
-                {index + 1 + (current_page - 1) * 10}
+                {index + 1}
               </th>
-              <td className="p-3">{item.name}</td>
-              <td className="p-3">{getCategoryByName(item.categoryId)}</td>
-              <td className="p-3">IDR {formatNumber(item.price)}</td>
+              <td className="p-3">{item.fullName}</td>
+              <td className="p-3">{item.username}</td>
+              <td className="p-3">{getRoleByName(item.roleId)}</td>
+              <td className="p-3">IDR {formatNumber(item.salary)}</td>
               <td className="p-3">
                 <div className="aspect-[4/3] w-10">
                   <img
                     src={process.env.REACT_APP_PRODUCT_IMAGE_URL + item.image}
-                    alt={`${item.name}`}
+                    alt={`${item.fullName}`}
                     className="h-full w-full object-cover"
                   />
                 </div>

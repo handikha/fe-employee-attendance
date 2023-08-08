@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "../../../components/Modal";
-import InputCategory from "./input.category";
+import InputCategory from "./input.role";
 import SuccessMessage from "../../../components/SuccessMessage";
 import Button from "../../../components/Button";
 

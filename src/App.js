@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => {
     return {
-      user: state.auth,
+      user: state.auth?.data,
     };
   });
 
@@ -28,8 +28,6 @@ function App() {
       setLoading(false);
     });
   }, []);
-
-  const token = localStorage.getItem("token");
 
   if (loading) {
     return (
@@ -43,7 +41,7 @@ function App() {
 
   return (
     <>
-      {token && <Navbar user={user} />}
+      {user.id && <Navbar user={user} />}
 
       <Routes>
         <Route exact path="/" element={<Login />} />
@@ -58,7 +56,7 @@ function App() {
           element={<ChangeDefaultPassword />}
         />
 
-        {user?.role == 1 && (
+        {user?.roleId === 1 && (
           <>
             <Route path="/admin" element={<Admin user={user} />} />
             <Route path="/admin/:context" element={<Admin user={user} />} />
@@ -69,11 +67,11 @@ function App() {
           </>
         )}
 
-        {user?.role == 2 && (
+        {user?.roleId !== 1 && (
           <>
-            <Route path="/cashier" element={<Cashier />} />
+            <Route path="/employee" element={<Cashier />} />
             <Route
-              path="/cashier/account-setting/:context"
+              path="/employee/account-setting/:context"
               element={<CashierAccountSetting user={user} />}
             />
           </>

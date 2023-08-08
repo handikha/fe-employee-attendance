@@ -2,21 +2,22 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../utils/api.instance";
 import Toast from "react-hot-toast";
 
-export const getProducts = createAsyncThunk(
-  "products/getProducts",
+export const getUsers = createAsyncThunk(
+  "users/getUsers",
   async (payload, { rejectWithValue }) => {
     try {
-      const {
-        category_id,
-        page,
-        sort_name,
-        sort_price,
-        limit,
-        keywords,
-        status,
-      } = payload;
-      const PARAMETER = `page=${page}&limit=${limit}&category_id=${category_id}&sort_name=${sort_name}&sort_price=${sort_price}&status=${status}&keywords=${keywords}`;
-      const { data } = await api.get("/products?" + encodeURI(PARAMETER));
+      // const {
+      //   category_id,
+      //   page,
+      //   sort_name,
+      //   sort_price,
+      //   limit,
+      //   keywords,
+      //   status,
+      // } = payload;
+      // const PARAMETER = `page=${page}&limit=${limit}&category_id=${category_id}&sort_name=${sort_name}&sort_price=${sort_price}&status=${status}&keywords=${keywords}`;
+      // const { data } = await api.get("/products?" + encodeURI(PARAMETER));
+      const { data } = await api.get("/employees");
 
       return data;
     } catch (error) {
@@ -25,11 +26,11 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-export const createProduct = createAsyncThunk(
-  "products/createProduct",
+export const createUser = createAsyncThunk(
+  "users/createUser",
   async (payload, { rejectWithValue }) => {
     try {
-      const { data } = await api.post("/products", payload);
+      const { data } = await api.post("/employees", payload);
       return data.message;
     } catch (error) {
       Toast.error(error.response.data.message);
@@ -38,11 +39,11 @@ export const createProduct = createAsyncThunk(
   }
 );
 
-export const updateProduct = createAsyncThunk(
-  "products/updateProduct",
+export const updateUser = createAsyncThunk(
+  "users/updateUser",
   async ({ id, formData }, { rejectWithValue }) => {
     try {
-      const { data } = await api.patch(`/products/${encodeURI(id)}`, formData);
+      const { data } = await api.patch(`/employees/${encodeURI(id)}`, formData);
       return data.message;
     } catch (error) {
       Toast.error(error.response.data.message);
@@ -51,8 +52,8 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
-export const deleteProduct = createAsyncThunk(
-  "products/deleteProduct",
+export const deleteUser = createAsyncThunk(
+  "users/deleteUser",
   async (payload, { rejectWithValue }) => {
     try {
       await api.delete("/products/" + encodeURI(payload));
@@ -64,6 +65,6 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
-export const resetSuccessProduct = () => ({
-  type: "products/resetSuccessProduct",
+export const resetSuccessUser = () => ({
+  type: "users/resetSuccessUser",
 });

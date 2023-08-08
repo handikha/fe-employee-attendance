@@ -30,7 +30,7 @@ export const keepLogin = createAsyncThunk(
   "auth/keepLogin",
   async (payload, { rejectWithValue }) => {
     try {
-      const { data } = await api.get("/auth");
+      const { data } = await api.get("/auth/keep-login");
       return data.user;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -114,15 +114,15 @@ export const changePassword = createAsyncThunk(
 );
 
 export const changeProfileImage = createAsyncThunk(
-    "auth/upload-image",
-    async (payload, {rejectWithValue}) => {
-      try {
-        const {data} = await api.put("/auth/upload-image", payload);
-        Toast.success(data.message);
-        return data;
-      } catch (error) {
-        Toast.error(error.response.data.message);
-        return rejectWithValue(error?.response?.message);
-      }
+  "auth/upload-image",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const { data } = await api.put("/auth/upload-image", payload);
+      Toast.success(data.message);
+      return data;
+    } catch (error) {
+      Toast.error(error.response.data.message);
+      return rejectWithValue(error?.response?.message);
     }
+  }
 );

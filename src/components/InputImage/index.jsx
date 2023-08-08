@@ -6,9 +6,9 @@ export default function InputImage({
   file,
   error,
   setFile,
-  productData,
-  productDataImage,
-  setProductDataImage,
+  userData,
+  userDataImage,
+  setUserDataImage,
 }) {
   const [previewImage, setPreviewImage] = useState(null);
 
@@ -31,7 +31,7 @@ export default function InputImage({
   const removeImage = () => {
     setFile(null);
     setPreviewImage(null);
-    setProductDataImage(null);
+    setUserDataImage(null);
   };
 
   const { getRootProps, getInputProps, open, isDragActive } = useDropzone({
@@ -60,12 +60,12 @@ export default function InputImage({
           })}
         />
 
-        {previewImage || productDataImage ? (
+        {previewImage || userDataImage ? (
           <img
-            alt={productData?.name}
+            alt={userData?.fullName}
             src={
               previewImage ||
-              process.env.REACT_APP_PRODUCT_IMAGE_URL + productDataImage
+              process.env.REACT_APP_PRODUCT_IMAGE_URL + userDataImage
             }
             className="w-64"
           />
@@ -89,7 +89,7 @@ export default function InputImage({
         )}
       </div>
 
-      {file === null && !productDataImage ? (
+      {file === null && !userDataImage ? (
         <>
           <p className="text-md mb-2 mt-2 text-center font-normal text-slate-400">
             Or

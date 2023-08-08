@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
-import { inputCategorySchema } from "../../../store/slices/categories/validation";
+import { inputCategorySchema } from "../../../store/slices/roles/validation";
 import {
   createCategory,
   updateCategory,
-} from "../../../store/slices/categories/slices";
+} from "../../../store/slices/roles/slices";
 import { useDispatch, useSelector } from "react-redux";
 import { capitalizeEachWords } from "../../../utils/capitalizeEachWords";
 
