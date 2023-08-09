@@ -168,11 +168,10 @@ export default function NavMenu({
             }}
           >
             <img
-              src={"http://127.0.0.1:5000/" + user?.image}
+              src={process.env.REACT_APP_USER_IMAGE_URL + user?.image}
               alt=""
               className="h-full w-full object-cover"
             />
-            {/* <div className="text-white">A</div> */}
           </div>
 
           <AnimatePresence>

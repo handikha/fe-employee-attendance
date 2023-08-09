@@ -26,7 +26,7 @@ export default function CashierAccountSetting({ user }) {
 
   return (
     <div className="container flex justify-center gap-x-10 py-24">
-      <div className="mt-11 flex flex-col items-start gap-3 border-r-2  pr-10">
+      <div className="mt-11 flex flex-col items-start gap-3 border-r-2 pr-10">
         {settings.map((setting, index) => (
           <Button
             key={index}

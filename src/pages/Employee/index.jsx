@@ -79,7 +79,6 @@ export default function Employee({ user }) {
       );
     setIsClockOut(!!clockOutToday);
 
-    console.log(attendances);
   }, [attendances]);
 
   useEffect(() => {
@@ -92,14 +91,14 @@ export default function Employee({ user }) {
         <h3>
           {greeting()}, {user.fullName}!
         </h3>
-        <div className="">{time}</div>
-        <div className="">Your worked hours</div>
+        <div className="mt-4 text-xl font-semibold">{time}</div>
+        <div className="mt-4">Your worked hours</div>
         <div className="flex gap-4">
           <div className="">08:00:00 AM</div>
           <div className=""> - </div>
           <div className="">05:00:00 PM</div>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 mt-2">
           <Button
             isButton
             isPrimary

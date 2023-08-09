@@ -74,7 +74,8 @@ export const forgetPassword = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       // @generate parameter
-      const { data } = await api.put(`/auth/forget-password`, payload);
+      const { data } = await api.post(`/auth/forget-password`, payload);
+
       Toast.success(data.message);
       return data.data;
     } catch (error) {
@@ -86,9 +87,9 @@ export const forgetPassword = createAsyncThunk(
 
 export const resetPassword = createAsyncThunk(
   "auth/resetPassword",
-  async (payload, { rejectWithValue }) => {
+  async ({ token, values }, { rejectWithValue }) => {
     try {
-      const { data } = await api.patch("/auth/reset-password", payload);
+      const { data } = await api.patch(`/auth/reset-password/${token}`, values);
       Toast.success(data.message);
       return data;
     } catch (error) {

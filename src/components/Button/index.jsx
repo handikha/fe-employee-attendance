@@ -10,7 +10,7 @@ export default function Button(props) {
 
   props.isPrimary &&
     !props.isDisabled &&
-    className.push("bg-primary hover:bg-green-700 text-white duration-300");
+    className.push("bg-primary hover:bg-cyan-700 text-white duration-300");
 
   props.isPrimary &&
     props.isDisabled &&

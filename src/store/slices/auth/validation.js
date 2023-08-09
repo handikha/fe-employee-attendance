@@ -35,7 +35,7 @@ export const resetPasswordSchema = Yup.object({
   password: Yup.string()
     .required("Password is required.")
     .min(6, "Password must be at least 6 characters.")
-    .matches(/^[a-zA-Z0-9]+$/, "password must be alphanumeric."),
+    .matches(/^[a-zA-Z0-9]+$/, "Password must be alphanumeric."),
   confirmPassword: Yup.string().oneOf(
     [Yup.ref("password"), null],
     "Password must match."
@@ -56,4 +56,9 @@ export const changePasswordValidationSchema = Yup.object({
     [Yup.ref("password"), null],
     "Password must match."
   ),
+});
+
+// @define register validation schema
+export const forgetPasswordSchema = Yup.object({
+  email: Yup.string().email("Email must be a valid email."),
 });

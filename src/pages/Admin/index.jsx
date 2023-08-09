@@ -31,7 +31,7 @@ export default function Admin({ user }) {
           <ProfileCard
             username={user.username}
             fullName={user.fullName}
-            profileImg={user.profileImg}
+            profileImg={user.image}
             isVerified={isVerified}
             context={context}
           />

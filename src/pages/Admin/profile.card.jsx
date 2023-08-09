@@ -26,7 +26,7 @@ export default function ProfileCard({
           <div className="h-16 w-16 md:mb-4 md:aspect-square md:h-fit md:w-5/6">
             <div className="aspect-square overflow-hidden rounded-full">
               <img
-                src={"http://127.0.0.1:5000/" + profileImg}
+                src={process.env.REACT_APP_USER_IMAGE_URL + profileImg}
                 alt=""
                 className="h-full w-full object-cover"
               />

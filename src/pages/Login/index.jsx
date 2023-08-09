@@ -133,6 +133,7 @@ export default function Login() {
       >
         <div className="">
           <Input
+            ref={emailRef}
             type="email"
             placeholder="Insert your email"
             id="email"
